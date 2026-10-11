@@ -7,31 +7,25 @@ image_size = 0x2b01000
 
 [[features]]
 key = "SkippableFMVs"
-
 [[scripts]]
 file = "SkippableFMVs.asm"
 
 [[features]]
 key = "FastText"
-
 [[scripts]]
 file = "FastText.asm"
 
 [[features]]
 key = "EnhancedHolyBottles"
-
 [[scripts]]
 file = "EnhancedHolyBottles.asm"
 
-# Multipliers activate independently above 1; no additional INI switches.
 [[features]]
 key = "RheairdMoveSpeed"
 enable_above = 1
-
 [[scripts]]
 file = "RheairdMoveSpeed.asm"
 writable = ["move_settings"]
-
 [[parameters]]
 key = "RheairdMoveSpeedMultiplier"
 feature = "RheairdMoveSpeed"
@@ -44,11 +38,9 @@ max_exclusive = 10
 [[features]]
 key = "RheairdTurnSpeed"
 enable_above = 1
-
 [[scripts]]
 file = "RheairdTurnSpeed.asm"
 writable = ["turn_settings"]
-
 [[parameters]]
 key = "RheairdTurnSpeedMultiplier"
 feature = "RheairdTurnSpeed"
@@ -58,39 +50,32 @@ default = 1
 min = 1
 max_exclusive = 10
 
-# Optional double-speed block movement; absent/0 keeps the corrected speed.
 [[features]]
 key = "FastBlockPush"
-
 [[scripts]]
 file = "FastBlockPush.asm"
 
 [[features]]
 key = "EnableVoicedSkits"
-
 [[scripts]]
 file = "EnableVoicedSkits.asm"
 
 [[features]]
 key = "DisableBackgroundPause"
-
 [[scripts]]
 file = "DisableBackgroundPause.asm"
 
-[[features]]
-key = "MenuOverflowFix"
-
-[[scripts]]
-file = "MenuOverflowFix.asm"
+# [[features]]
+# key = "MenuOverflowFix"
+# [[scripts]]
+# file = "MenuOverflowFix.asm"
 
 [[features]]
 key = "SaveAnywhere"
-
 [[scripts]]
 file = "SaveAnywhere.asm"
 
 [[features]]
 key = "DisablePartyReqs"
-
 [[scripts]]
 file = "DisablePartyReqs.asm"
