@@ -7,7 +7,7 @@ A drop-in `d3d9.dll` proxy for the Steam release of *Tales of Symphonia*. Works 
 - **Multiple TLFile mods, no repacking.** Every subfolder of `mods/tlfile/` is loaded on top of the stock data. Later folders override earlier ones (alphabetical order). The I/O buffer is also raised to 1 GB so large modded files load.
 - **Texture replacement.** TSFix-compatible: existing TSFix packs work without renaming. Drop DDS files in `mods/textures/replace/` (nested pack folders are fine). Press **F5** in-game to reload them.
 - **Fast-forward.** Press **F10** to increase speed and **F9** to decrease. Step size and max speed are configurable. A label in the upper-right shows the current speed.
-- **Patch scripts.** Optional patch packages (battle enhancements, debug options, QoL) in `mods/asm/`, no Cheat Engine needed. See [patches](patches/README.md).
+- **Patch scripts.** Optional patch packages (battle enhancements, debug options, QoL) in `mods/asm/`, no Cheat Engine needed. See [asm](asm/README.md).
 
 ## Installation
 
@@ -56,7 +56,7 @@ MaxSpeed=10           ; max speed multiplier
 DisableVSync=0        ; disable v-sync at 1x speed
 ```
 
-More options are covered in [patches/README.md](patches/README.md).
+More options are covered in [asm/README.md](asm/README.md).
 An example config is provided as `d3d9_config.example.ini`.
 
 ## Supported texture formats

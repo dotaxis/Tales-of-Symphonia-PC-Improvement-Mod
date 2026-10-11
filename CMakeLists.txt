@@ -77,7 +77,7 @@ endif()
 
 install(TARGETS d3d9 RUNTIME DESTINATION . LIBRARY DESTINATION .)
 install(FILES d3d9_config.example.ini DESTINATION .)
-install(DIRECTORY patches/ DESTINATION mods/asm PATTERN "*.json" EXCLUDE)
+install(DIRECTORY asm/ DESTINATION mods/asm PATTERN "*.json" EXCLUDE)
 install(DIRECTORY DESTINATION mods/textures/replace)
 install(DIRECTORY DESTINATION mods/tlfile)
 install(FILES third_party/PATCH_DEPENDENCIES.md DESTINATION licenses)
