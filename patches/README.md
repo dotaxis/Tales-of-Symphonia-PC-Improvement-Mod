@@ -54,7 +54,6 @@ DisablePartyReqs=0
 | `SpellQueueFix` | Allow spells to be cast in the order that they are ready |
 | `NoMysticArteReqs` | Disables weapon and story requirements for Lloyd, Zelos, Kratos, Presea, and Regal MA's. Change Lloyd's low HP requirement to an OVL requirement |
 | `NoSpellCancelReqs` | Removes the arte usage requirement for spell canceling that was introduced in Chronicles |
-| `NoSpellPause` | Disables spell pause |
 | `PartySpellSlots` | 1-4 concurrent party casts |
 | `EnemySpellSlots` | 1-3 concurrent enemy casts |
 
