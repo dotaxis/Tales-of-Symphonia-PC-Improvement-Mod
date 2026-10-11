@@ -65,17 +65,23 @@ key = "DisableBackgroundPause"
 [[scripts]]
 file = "DisableBackgroundPause.asm"
 
-# [[features]]
-# key = "MenuOverflowFix"
-# [[scripts]]
-# file = "MenuOverflowFix.asm"
+[[features]]
+key = "MenuOverflowFix"
+[[scripts]]
+file = "MenuOverflowFix.asm"
 
 [[features]]
 key = "SaveAnywhere"
 [[scripts]]
 file = "SaveAnywhere.asm"
 
+# Disabled Temporarily
+# [[features]]
+# key = "DisablePartyReqs"
+# [[scripts]]
+# file = "DisablePartyReqs.asm"
+
 [[features]]
-key = "DisablePartyReqs"
+key = "ForceControllerDisplay"
 [[scripts]]
-file = "DisablePartyReqs.asm"
+file = "ForceControllerDisplay.asm"
