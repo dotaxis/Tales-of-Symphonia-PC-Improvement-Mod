@@ -359,6 +359,12 @@ bool RecoverDevice() {
 }
 
 LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lParam) {
+    // Block F10 from trying to trigger menu in borderless
+    if (message == WM_SYSCOMMAND &&
+        (wParam & 0xFFF0) == SC_KEYMENU &&
+        ModeForWindow() == Mode::Borderless)
+        return 0;
+
     if (message == WM_PAINT && (transitioning || DeviceLost() || (presentation && presentation->IsResetting()))) {
         PAINTSTRUCT paint{};
         BeginPaint(window, &paint);
