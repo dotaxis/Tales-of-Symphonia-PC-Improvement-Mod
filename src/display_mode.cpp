@@ -252,6 +252,8 @@ void RestoreWindow() {
 }
 
 bool ApplyDisplayMode(int width, int height, Mode target) {
+    static uint32_t appliedSamples = ~0u;
+    static uint32_t appliedQuality = ~0u;
     if (transitioning || (presentation && presentation->IsResetting()) ||
         (deviceThread && GetCurrentThreadId() != deviceThread) || width <= 0 || height <= 0) {
         LOG("[Display] Reentrant/off-thread/invalid mode change rejected");
@@ -267,6 +269,16 @@ bool ApplyDisplayMode(int width, int height, Mode target) {
     if (!ReadParameters(modeChange.parameters)) {
         SyncMode(modeChange.previous);
         return false;
+    }
+    const auto& params = modeChange.parameters;
+    if (!DeviceLost() && target == modeChange.previous &&
+        params.Windowed == IsWindowed(target) &&
+        params.BackBufferWidth == static_cast<UINT>(width) &&
+        params.BackBufferHeight == static_cast<UINT>(height) &&
+        appliedSamples == Game<uint32_t>(0x1DB9A90) &&
+        appliedQuality == Game<uint32_t>(0x1DB9A94)) {
+        SyncMode(target);
+        return true;
     }
     modeChange.samples = modeChange.parameters.MultiSampleType;
     modeChange.quality = modeChange.parameters.MultiSampleQuality;
@@ -311,6 +323,8 @@ bool ApplyDisplayMode(int width, int height, Mode target) {
         DeviceLost() = !modeChange.rolledBack;
         return false;
     }
+    appliedSamples = Game<uint32_t>(0x1DB9A90);
+    appliedQuality = Game<uint32_t>(0x1DB9A94);
     currentMode.store(target);
     SyncMode(target);
     LOG("[Display] Mode=%u, render=%dx%d, thread=%lu", unsigned(target), width, height, GetCurrentThreadId());
