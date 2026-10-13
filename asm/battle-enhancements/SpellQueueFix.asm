@@ -28,11 +28,15 @@ assert(TOS.exe+0x2727b,F6 83 90 02 00 00 10)
 [ENABLE]
 
 define(SpellHold,TOS.exe+26B13)
+define(OwnSpellCasted,TOS.exe+27226)
 define(SpellTimer,TOS.exe+27228)
 define(QueueCapacityResult,TOS.exe+27245)
 define(BattleEnd,TOS.exe+67DBA)
 define(UnisonSlash,TOS.exe+6FF76)
 define(UnisonTrigger,TOS.exe+7140E)
+
+assert(OwnSpellCasted,75 53)
+
 alloc(Mem_SpellHold,$1000,SpellHold)
 alloc(QueueList,4)
 registersymbol(QueueList)
@@ -154,6 +158,9 @@ SpellHold:
     jmp Mem_SpellHold
     nop E
 Ret_SpellHold:
+
+OwnSpellCasted:
+	nop 2
 
 SpellTimer:
     jmp TOS.exe+2724F
