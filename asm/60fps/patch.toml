@@ -1,0 +1,15 @@
+format = 1
+id = "60fps"
+version = "0.0.46"
+config_section = "60FPS"
+image_base = 0x400000
+image_size = 0x2aff000
+
+# One switch for the complete, mutually dependent v0.0.46 timing corrections.
+# Missing / zero defaults to disabled; requires a fresh launch to change.
+[[features]]
+key = "Enabled"
+
+[[scripts]]
+file = "60fps.asm"
+writable = ["chant_cache", "crimson_frame", "darkness_orb_state", "darkness_shader_state", "dialogue_corners"]
