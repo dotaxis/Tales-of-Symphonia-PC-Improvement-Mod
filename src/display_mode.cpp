@@ -557,7 +557,7 @@ PatchFramework::Definition BuildPatchDefinition() {
     d.version = "2";
     d.configSection = "Display";
     d.imageBase = imageBase;
-    d.imageSize = 0x2B01000;
+    d.imageSize = 0x2AFF000;
     d.features.push_back({1, 0, "Borderless"});
     // Check overwritten instructions and the native code each hook relies on.
     // clang-format off
