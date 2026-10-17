@@ -4,7 +4,7 @@ id = "debug"
 version = "1.5.1"
 config_section = "Debug"
 image_base = 0x400000
-image_size = 0x2b01000
+image_size = 0x2aff000
 
 [[features]]
 key = "CollisionOverlay"

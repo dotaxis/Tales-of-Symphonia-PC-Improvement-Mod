@@ -3,7 +3,7 @@ id = "qol"
 version = "1.3.1"
 config_section = "QoL"
 image_base = 0x400000
-image_size = 0x2b01000
+image_size = 0x2aff000
 
 [[features]]
 key = "SkippableFMVs"

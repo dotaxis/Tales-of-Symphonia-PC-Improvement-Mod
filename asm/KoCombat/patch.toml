@@ -4,7 +4,7 @@ id = "KoCombat"
 version = "1.0.0"
 config_section = "KoCombat"
 image_base = 0x400000
-image_size = 0x2b01000
+image_size = 0x2aff000
 
 [[features]]
 key = "CommandLabels"
