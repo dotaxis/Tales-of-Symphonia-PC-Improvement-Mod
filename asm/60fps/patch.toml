@@ -1,3 +1,8 @@
+# 60FPS v0.0.46: nine scripts form one startup feature.
+# Vanilla SHA256: 01cad33820c383b938452acb60eed21262152b9f85f29bfbbcee04d51d3a7104
+# Reference SHA256: a7eebf652b6dff389927994055784f83bfa96630ba155bd420df0a91fccb6719
+# Source: TOS60-v0.0.46 / IDB history c968f3b. Later IDB experiments are excluded.
+# Runtime allocations replace the reference .cave section; the vanilla PE stays untouched.
 format = 1
 id = "60fps"
 version = "0.0.46"
@@ -5,11 +10,45 @@ config_section = "60FPS"
 image_base = 0x400000
 image_size = 0x2aff000
 
-# One switch for the complete, mutually dependent v0.0.46 timing corrections.
-# Missing / zero defaults to disabled; requires a fresh launch to change.
+# Missing / zero defaults to disabled. Change settings before launching the game.
 [[features]]
 key = "Enabled"
 
+# Frame pacing, global counters, shared constants, general input and engine animation.
 [[scripts]]
-file = "60fps.asm"
-writable = ["chant_cache", "crimson_frame", "darkness_orb_state", "darkness_shader_state", "dialogue_corners"]
+file = "shared_timing.asm"
+
+# Battle flow, actors, movement, combat input, cameras, artes, chanting, entry and results.
+[[scripts]]
+file = "battle.asm"
+writable = ["crimson_frame", "chant_cache"]
+
+# Battle particles/projectiles, HUD, chant portraits, cut-ins, flashes and rendering.
+[[scripts]]
+file = "battle_effects.asm"
+
+# Field updates, scripted camera/waits, movement/collision, NPCs and character animation.
+[[scripts]]
+file = "field.asm"
+
+# Field particles, emotes, damage numbers, other effects and all Sorcerer's Ring fixes.
+[[scripts]]
+file = "field_effects.asm"
+
+# World movement, Ozette waypoints, Rheairds animation and Noishe town entry.
+[[scripts]]
+file = "overworld.asm"
+
+# Menu transitions, screen/title fades and skit animation/presentation.
+[[scripts]]
+file = "ui.asm"
+
+# Dialogue timing, continue arrows, borders, speech tails, corners and name masking.
+[[scripts]]
+file = "dialogue.asm"
+writable = ["dialogue_corners"]
+
+# Complete Darkness orb/common shaders, vtables and writable caches.
+[[scripts]]
+file = "darkness_rendering.asm"
+writable = ["darkness_orb_state", "darkness_shader_state"]
